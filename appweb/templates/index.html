@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img class="d-block img-fluid" src="https://dojiw2m9tvv09.cloudfront.net/73209/product/intel-core-i7-11700f-2-50ghz-16mb-lga12004075.jpg" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block img-fluid" src="https://www.zonadigitalsv.com/product/images/2395" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block img-fluid" src="https://dojiw2m9tvv09.cloudfront.net/73209/product/imac-21-5-inch-a2116-mhk23e-core-i3-ram-8-gb-256-ssd-radeon-pro-555x-2gb-16-9-led4808.gif?134&time=1696331814" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="row">
+    {% for prod in products %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <a href="producto/{{prod.id}}"><img class="card-img-top" src="" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="producto.html">{{prod.nombre}}</a>
+          </h4>
+          <h5>S/. {{prod.precio}}</h5>
+          <p class="card-text">Categoria: {{prod.categoria.nombre}}</p>
+          <p class="card-text">{{prod.descripcion}}</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
